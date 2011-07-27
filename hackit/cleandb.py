@@ -1,3 +1,4 @@
+from time import time
 from OFS.Uninstalled import BrokenClass
 from Products.Naaya.NySite import NySite
 
@@ -16,3 +17,11 @@ def remove_portals(parent, keep=None):
     for name in to_remove:
         print 'removing %r' % name
         parent._delObject(name, suppress_events=True)
+
+def get_db(ob):
+    return ob._p_jar._db
+
+def pack(db):
+    t0 = time()
+    db.pack()
+    print "packed in %.2f seconds" % (time()-t0,)
