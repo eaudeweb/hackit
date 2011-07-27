@@ -2,6 +2,14 @@ from time import time
 from OFS.Uninstalled import BrokenClass
 from Products.Naaya.NySite import NySite
 
+"""
+>>> from hackit import cleandb
+>>> import transaction
+>>> cleandb.remove_portals(app, keep=['chm_nl'])
+>>> transaction.commit()
+>>> cleandb.pack(cleandb.get_db(app))
+"""
+
 def remove_portals(parent, keep=None):
     """ remove all portals except the one named in `keep` """
 
