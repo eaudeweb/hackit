@@ -1,6 +1,10 @@
 from time import time
+import logging
 from OFS.Uninstalled import BrokenClass
 from Products.Naaya.NySite import NySite
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
 
 """
 >>> from hackit import cleandb
@@ -23,7 +27,7 @@ def remove_portals(parent, keep=None):
             to_remove.append(name)
 
     for name in to_remove:
-        print 'removing %r' % name
+        log.info('removing %r', name)
         parent._delObject(name, suppress_events=True)
 
 def get_db(ob):
@@ -32,4 +36,4 @@ def get_db(ob):
 def pack(db):
     t0 = time()
     db.pack()
-    print "packed in %.2f seconds" % (time()-t0,)
+    log.info("packed in %.2f seconds", time() - t0)
