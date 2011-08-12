@@ -30,6 +30,12 @@ def remove_portals(parent, keep=None):
         log.info('removing %r', name)
         parent._delObject(name, suppress_events=True)
 
+def make_cookie_crumbler(ob):
+    """ create a cookie crumbler in `ob` (typically the application root) """
+    from Products.CookieCrumbler.CookieCrumbler import manage_addCC
+    manage_addCC(ob, 'login', create_forms=True)
+    log.info("created %r", ob['login'])
+
 def get_db(ob):
     return ob._p_jar._db
 
