@@ -1,7 +1,6 @@
 from time import time
 import logging
 from OFS.Uninstalled import BrokenClass
-from Products.Naaya.NySite import NySite
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -16,6 +15,8 @@ log.setLevel(logging.INFO)
 
 def remove_portals(parent, keep=None):
     """ remove all portals except the one named in `keep` """
+
+    from Products.Naaya.NySite import NySite
 
     to_remove = []
 
