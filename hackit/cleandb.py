@@ -47,3 +47,12 @@ def pack(db):
     t0 = time()
     db.pack()
     log.info("packed in %.2f seconds", time() - t0)
+
+def auto(app, keep=None):
+    """
+    Shorthand for::
+
+        remove_portals(app, keep)
+        import transaction; transaction.commit()
+        pack(get_db(app))
+    """
