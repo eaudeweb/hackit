@@ -14,7 +14,10 @@ log.setLevel(logging.INFO)
 """
 
 def remove_portals(parent, keep=None):
-    """ remove all portals except the one named in `keep` """
+    """
+    Remove all portals in `parent`. `keep` is a list of portal IDs that should
+    not be removed.
+    """
 
     from Products.Naaya.NySite import NySite
 
