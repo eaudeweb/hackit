@@ -56,3 +56,6 @@ def auto(app, keep=None):
         import transaction; transaction.commit()
         pack(get_db(app))
     """
+    remove_portals(app, keep)
+    import transaction; transaction.commit()
+    pack(get_db(app))
